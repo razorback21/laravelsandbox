@@ -1,0 +1,32 @@
+1. create new Policy NotebookPolicy
+2. run php artisan make:policy NotebookPolicy --model=Notebook
+3. take note of the format of the Policy file (ModelNamePolicy) 
+4. Policy class must be in App\Policies folder
+5. Register the Policy in AuthServiceProvider.php
+8. run php artisan make:provider AuthServiceProvider if not exist
+9. add the following code to AuthServiceProvider.php
+    protected $policies = [
+        Notebook::class => NotebookPolicy::class,
+    ];
+10. add the following code to AuthServiceProvider.php
+    public function boot(): void
+    {
+        $this->registerPolicies();
+    }
+11. add the following code to NotebookPolicy.php
+    public function view(User $user, Notebook $notebook): bool
+    {
+        return $user->id === $notebook->user_id;
+    }
+12. add use AuthorizesRequests to Controller.php
+    abstract class Controller
+    {
+        use AuthorizesRequests;
+    }
+13. apply the policy to the controller action
+    public function show(Notebook $notebook)
+    {
+        $this->authorize('view', $notebook);
+        return view('notebooks.show', compact('notebook'));
+    }
+    
