@@ -3,6 +3,7 @@
 use App\Http\Controllers\NoteBookController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Notebook;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,4 +21,4 @@ require __DIR__.'/auth.php';
 Route::resource('notes', NoteController::class)->middleware('auth');
 Route::resource('notebooks', NotebookController::class)->middleware('auth');
 
-
+Route::get('/notebook/notes/{notebook}', [NotebookController::class, 'notes'])->name('notebooks.notes');

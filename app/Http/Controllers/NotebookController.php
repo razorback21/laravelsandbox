@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NoteBook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\ErrorHandler\Debug;
 
 class NotebookController extends Controller
 {
@@ -86,5 +87,15 @@ class NotebookController extends Controller
         //You can also use this redirect(route('notebooks.index'))->with('success', 'Notebook deleted successfully.');
         return to_route('notebooks.index', $notebook)->with('success', 'Notebook deleted successfully.');
         
+    }
+
+    /**
+     * Display a listing of the notes.
+     */
+    public function notes(Notebook $notebook) {
+        return view('notebooks.notes', [
+            'notebook' => $notebook,
+            'notes' => $notebook->notes()->latest('updated_at')->paginate(5),
+        ]);
     }
 }

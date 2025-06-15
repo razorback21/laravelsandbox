@@ -16,7 +16,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="bg-white overflow-hidden sm:rounded-lg px-5 py-3 flex items-center justify-between">
                     <h2 class="font-bold text-indigo-600">
-                        <a href="{{ route('notebooks.show', $notebook) }}" class="hover:underline">{{ $notebook->name }}</a>    
+                        <a href="{{ route('notebooks.notes', $notebook) }}" class="hover:underline">{{ $notebook->name }}</a>    
                     </h2>
                     <form action="{{ route('notebooks.destroy', $notebook) }}" method="POST">
                         @csrf

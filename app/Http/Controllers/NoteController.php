@@ -17,7 +17,7 @@ class NoteController extends Controller
         $user_id = Auth::id();
         $notes = Auth::user()->notes()->latest('updated_at')->paginate(5);
         // You also use this as of laravel 7
-        //$notes = Note::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);  
+        $notes = Note::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);  
 
         return view('notes.index', compact('notes'));
     }
@@ -42,14 +42,9 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateNoteData();
+        $validated = $this->validateNoteData();
 
-        $user_id = Auth::id();
-        $note = new Note();
-        $note->user_id = $user_id;
-        $note->title = $request->title;
-        $note->text = $request->text;
-        $note->save();
+        Auth::user()->notes()->create($validated);
 
         return redirect(route('notes.index'))->with('success', 'Note created successfully.');
     }
@@ -93,4 +88,6 @@ class NoteController extends Controller
         $note->delete();
         return redirect(route('notes.index'))->with('success', 'Note deleted successfully.');
     }
+
+    
 }
