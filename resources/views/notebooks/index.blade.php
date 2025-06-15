@@ -23,7 +23,7 @@
                     <form action="{{ route('notebooks.destroy', $notebook) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <x-primary-button>
+                        <x-primary-button class="bg-red-600">
                             DELETE
                         </x-primary-button>
                     </form>

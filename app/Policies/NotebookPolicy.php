@@ -20,9 +20,9 @@ class NotebookPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Notebook $notebook): bool
+    public function view(User $user, Notebook $notebook): Response
     {   
-        return $user->id === $notebook->user_id;
+        return $user->id === $notebook->user_id ? Response::allow() : Response::deny('You do not own this post.');
     }
 
     /**

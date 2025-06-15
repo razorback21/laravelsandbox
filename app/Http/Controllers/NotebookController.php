@@ -72,6 +72,7 @@ class NotebookController extends Controller
 
         $notebook->update($validated);
 
+        //or we can also use to_route here to_route('notebooks.index', $notebook);
         return redirect(route('notebooks.show', $notebook))->with('success', 'Notebook updated successfully.');   
     }
 
@@ -82,6 +83,8 @@ class NotebookController extends Controller
     {
         $notebook->delete();
 
-        return redirect(route('notebooks.index'))->with('success', 'Notebook deleted successfully.');
+        //You can also use this redirect(route('notebooks.index'))->with('success', 'Notebook deleted successfully.');
+        return to_route('notebooks.index', $notebook)->with('success', 'Notebook deleted successfully.');
+        
     }
 }

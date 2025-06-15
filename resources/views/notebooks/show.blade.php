@@ -11,12 +11,17 @@
                 {{ session('success') }}
             </div>
             @endif
+            <div class="flex">
+                <x-link-button href="{{ route('notebooks.edit', $notebook) }}" class="ml-auto">Edit</x-link-button>
+                <form method="post">
+                    @csrf
+                    @method('DELETE')
+                    <x-primary-button href="{{ route('notebooks.destroy', $notebook) }}" class="ml-2 bg-red-600">Delete</x-primary-button>
+                </form>
+            </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10">
                 <h1 class="text-bold text-4xl">{{ $notebook->name }}</h1>
                 <p class="mt-4 whitespace-pre-wrap">Updated at: {{ $notebook->updated_at->diffForHumans() }}</p>
-                <p class="mt-3">
-                    <a href="{{ route('notebooks.edit', $notebook) }}" class="text-blue-500 hover:underline">Edit</a>
-                </p>
             </div>
         </div>
     </div>
