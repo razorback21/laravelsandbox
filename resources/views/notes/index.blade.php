@@ -17,6 +17,9 @@
                 <div class="bg-white overflow-hidden sm:rounded-lg p-10">
                     <h2 class="font-bold text-2xl text-indigo-600">
                         <a href="{{ route('notes.show', $note) }}" class="hover:underline">{{ $note->title }}</a>
+                        @if ($note->notebook)
+                            <span class="inline-block text-sm text-gray-400">{{ $note->notebook->name }}</span>
+                        @endif
                     </h2>
                     <p class="mt-2">{{ Str::limit($note->text,200, '...') }}</p>
                     <p class="mt-2">{{ $note->updated_at->diffForHumans() }}</p>
