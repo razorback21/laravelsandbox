@@ -18,13 +18,17 @@
                     <h2 class="font-bold text-indigo-600">
                         <a href="{{ route('notebooks.notes', $notebook) }}" class="hover:underline">{{ $notebook->name }}</a>    
                     </h2>
+
+                    <x-link-button href="{{ route('notebooks.edit', $notebook) }}" class="ml-auto mr-2">
+                        EDIT
+                    </x-link-button>
                     <form action="{{ route('notebooks.destroy', $notebook) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <x-primary-button onclick="return confirm('Are you sure you want to delete this notebook?')" class="bg-red-500  bg-red-500 hover:bg-red-600 focus:bg-red-600 active:bg-red-600 focus:outline-offset-2 focus:outline-red-500">
                             DELETE
                         </x-primary-button>
-                    </form>
+                    </form>                  
                     
                 </div>                   
             </div>
