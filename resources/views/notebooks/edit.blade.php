@@ -12,7 +12,7 @@
                     @method('PATCH')
                     <div class="mb-6">
                         <x-input-label class="text-bold mb-2" >Name</x-input-label>
-                        <x-text-input name="name" class="w-full" value="{{ $notebook->name }}"></x-text-input>
+                        <x-text-input name="name" class="w-full" value="{{ @old('name', $notebook->name) }}"></x-text-input>
                         @error('name')
                             <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                         @enderror
