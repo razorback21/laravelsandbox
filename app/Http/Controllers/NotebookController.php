@@ -14,7 +14,7 @@ class NotebookController extends Controller
     public function index()
     {
         return view('notebooks.index', [
-            'notebooks' => Notebook::where('user_id', Auth::id())->paginate(5),
+            'notebooks' => Auth::user()->notebooks()->paginate(5),
         ]);
     }
 
