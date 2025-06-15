@@ -23,7 +23,7 @@
                     <form action="{{ route('notebooks.destroy', $notebook) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <x-primary-button class="bg-red-600">
+                        <x-primary-button class=" bg-red-500  bg-red-500 hover:bg-red-600 focus:bg-red-600 mouse active:bg-red-600 focus:outline-offset-2 focus:outline-red-500">
                             DELETE
                         </x-primary-button>
                     </form>
