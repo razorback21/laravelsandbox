@@ -19,7 +19,7 @@
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10">
                 <h1 class="text-bold text-4xl">{{ $notebook->name }}</h1>
-                <p class="mt-4 whitespace-pre-wrap">Updated at: {{ $notebook->updated_at->diffForHumans() }}</p>
+                <p class="mt-4 whitespace-pre-wrap">Author: {{ $notebook->user->name }} - Updated at: {{ $notebook->updated_at->diffForHumans() }}</p>
             </div>
         </div>
     </div>

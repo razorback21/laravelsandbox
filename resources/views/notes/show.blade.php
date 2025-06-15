@@ -18,6 +18,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10">
                 <h1 class="text-bold text-4xl">{{ $note->title }}</h1>
                 <p class="mt-4">{{ $note->text }}</p>  
+                <p class="mt-4">Author: {{ $note->user->name }}</p>
             </div>
         </div>
     </div>
