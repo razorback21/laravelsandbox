@@ -11,7 +11,7 @@
                 <form method="post">
                     @csrf
                     @method('DELETE')
-                    <x-primary-button href="{{ route('notes.destroy', $note) }}" class="ml-2 bg-red-600">Delete</x-primary-button>
+                    <x-primary-button href="{{ route('notes.destroy', $note) }}" class="ml-2 bg-red-500  bg-red-500 hover:bg-red-600 focus:bg-red-600 mouse active:bg-red-600 focus:outline-offset-2 focus:outline-red-500">Delete</x-primary-button>
                 </form>
             </div>
             <p class="mt-4 whitespace-pre-wrap">Updated at: {{ $note->updated_at->diffForHumans() }}</p>

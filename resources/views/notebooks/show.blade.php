@@ -16,7 +16,7 @@
                 <form method="post">
                     @csrf
                     @method('DELETE')
-                    <x-primary-button href="{{ route('notebooks.destroy', $notebook) }}" class="ml-2 bg-red-600">Delete</x-primary-button>
+                    <x-primary-button href="{{ route('notebooks.destroy', $notebook) }}" class="ml-2  bg-red-500  bg-red-500 hover:bg-red-600 focus:bg-red-600 mouse active:bg-red-600 focus:outline-offset-2 focus:outline-red-500">Delete</x-primary-button>
                 </form>
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10">
