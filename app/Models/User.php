@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
 
-    public function notebook()
+    public function notebooks()
     {
         return $this->hasMany(Notebook::class);
     }

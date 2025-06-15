@@ -14,7 +14,8 @@ class Note extends Model
         'uuid',
         'title',
         'text',
-        'user_id'
+        'user_id',
+        'notebook_id'
     ];
 
     // Change route model binding default key and use uuid instead of id
@@ -26,5 +27,10 @@ class Note extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function notebook(): BelongsTo
+    {
+        return $this->belongsTo(Notebook::class);
     }
 }

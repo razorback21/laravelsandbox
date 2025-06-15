@@ -77,9 +77,7 @@ class NoteController extends Controller
     public function update(Request $request, Note $note)
     {
         $validated = $this->validateNoteData();
-
-        $note->title = $validated['title'];
-        $note->text = $validated['text'];
+        $validated['notebook_id'] = $request->notebook_id;
         $note->update($validated);
 
         return redirect(route('notes.show', $note))->with('success', 'Note updated successfully.');
