@@ -12,14 +12,14 @@
                     @method('PATCH')
                     <div class="mb-6">
                         <x-input-label class="text-bold mb-2" >Title</x-input-label>
-                        <x-text-input name="title" class="w-full" value="{{ $note->title }}"></x-text-input>
+                        <x-text-input name="title" class="w-full" value="{{ @old('title', $note->title) }}"></x-text-input>
                         @error('title')
                             <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-6">
                         <x-input-label class="text-bold mb-2" >Text</x-input-label>
-                        <x-text-textarea name="text" class="w-full" rows="5" placeholder="Add you note" value="{{ $note->text }}"></x-text-textarea>
+                        <x-text-textarea name="text" class="w-full" rows="5" placeholder="Add you note" value="{{ @old('text', $note->text) }}"></x-text-textarea>
                         @error('text')
                             <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                         @enderror
