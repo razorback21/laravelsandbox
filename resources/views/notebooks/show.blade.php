@@ -6,7 +6,9 @@
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <x-alert-success />
+            <x-alert-success>
+                {{ session('success') }}
+            </x-alert-success>
             <div class="flex">
                 <x-link-button href="{{ route('notebooks.edit', $notebook) }}" class="ml-auto">Edit</x-link-button>
                 <form method="post">
