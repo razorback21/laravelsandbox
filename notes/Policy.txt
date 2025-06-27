@@ -29,4 +29,17 @@
         $this->authorize('view', $notebook);
         return view('notebooks.show', compact('notebook'));
     }
-    
+ 14. Policy Cab be autmatically loaded by using this naming convention
+    PolicyName: ModelNamePolicy
+    Model: Notebook
+    Policy: NotebookPolicy
+
+    We can also use Gate::authorize() instead of $this->authorize()
+    public function destroy(Notebook $notebook)
+    {
+        Gate::authorize('delete', $notebook);
+
+        $notebook->delete();
+
+        return redirect('/notebooks');
+    }
